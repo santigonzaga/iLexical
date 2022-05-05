@@ -13,12 +13,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var button: UIButton!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var emptyImageView: UIImageView!
     private var response = [String: [String]]()
     private var responseKeys = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureUI()
+        self.EmptyStateControl()
         
         self.textView.delegate = self
         self.tableView.dataSource = self
@@ -30,11 +32,41 @@ class ViewController: UIViewController {
         self.grammarSeparator(text: textView.text)
     }
     
+    @IBAction func ClearButton(_ sender: UIButton) {
+        if textView.text == "Type here..." {
+            return
+        } else {
+            let alert = UIAlertController(title: "Alert", message: "Are you sure you want to clear your text?", preferredStyle: UIAlertController.Style.alert)
+                    alert.addAction(UIAlertAction(title: "Yes", style: UIAlertAction.Style.default, handler: {_ in
+                        self.textView.text = ""
+                        self.response = [String: [String]]()
+                        self.responseKeys = [String]()
+                        self.tableView.reloadData()
+                        self.EmptyStateControl()
+                    }))
+                    alert.addAction(UIAlertAction(title: "No", style: UIAlertAction.Style.default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+        }
+        
+    }
+    
     private func configureUI() {
         textView.text = "Type here..."
         textView.layer.cornerRadius = 16
         button.layer.cornerRadius = 16
-
+        self.view.backgroundColor = UIColor(named: "midnightBlue")
+        self.tableView.backgroundColor = UIColor(named: "midnightBlue")
+        self.textView.backgroundColor = .lightGray
+    }
+    
+    private func EmptyStateControl() {
+        if responseKeys.count == 0 {
+            tableView.isHidden = true
+            emptyImageView.isHidden = false
+        } else {
+            tableView.isHidden = false
+            emptyImageView.isHidden = true
+        }
     }
     
     private func grammarSeparator(text: String) {
@@ -44,10 +76,18 @@ class ViewController: UIViewController {
         tagger.enumerateTags(in: text.startIndex..<text.endIndex, unit: .word, scheme: .lexicalClass, options: options) { tag, tokenRange in
             if let tag = tag {
                 var current = response[tag.rawValue] ?? []
-                if !current.contains(text[tokenRange].description.lowercased()){
-                    current.append(text[tokenRange].description.lowercased())
+                
+                if tag.rawValue == "Noun" {
+                    if !current.contains(text[tokenRange].description){
+                        current.append(text[tokenRange].description)
+                    }
+                    response[tag.rawValue] = current
+                } else {
+                    if !current.contains(text[tokenRange].description.lowercased()){
+                        current.append(text[tokenRange].description.lowercased())
+                    }
+                    response[tag.rawValue] = current
                 }
-                response[tag.rawValue] = current
 
             }
             return true
@@ -55,7 +95,9 @@ class ViewController: UIViewController {
         
         let a = response.keys
         responseKeys.append(contentsOf: a)
+        self.EmptyStateControl()
         tableView.reloadData()
+        
     }
     
 }
@@ -74,7 +116,9 @@ extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "basicCell", for: indexPath)
         var content = cell.defaultContentConfiguration()
-        var words = response[responseKeys[indexPath.section]]?.joined(separator: ", ")
+        
+        let words = response[responseKeys[indexPath.section]]?.joined(separator: ", ")
+        
         content.text = words
         
         cell.contentConfiguration = content
@@ -87,6 +131,7 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
         return responseKeys[section]
     }
     

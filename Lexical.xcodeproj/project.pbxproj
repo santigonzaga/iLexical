@@ -16,7 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		DE7E91102822FD44004A9444 /* GrammarRecognizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GrammarRecognizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE7E91102822FD44004A9444 /* Lexical.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lexical.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE7E91132822FD44004A9444 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DE7E91152822FD44004A9444 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		DE7E91172822FD44004A9444 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -48,7 +48,7 @@
 		DE7E91112822FD44004A9444 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DE7E91102822FD44004A9444 /* GrammarRecognizer.app */,
+				DE7E91102822FD44004A9444 /* Lexical.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -70,9 +70,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		DE7E910F2822FD44004A9444 /* GrammarRecognizer */ = {
+		DE7E910F2822FD44004A9444 /* Lexical */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DE7E91242822FD45004A9444 /* Build configuration list for PBXNativeTarget "GrammarRecognizer" */;
+			buildConfigurationList = DE7E91242822FD45004A9444 /* Build configuration list for PBXNativeTarget "Lexical" */;
 			buildPhases = (
 				DE7E910C2822FD44004A9444 /* Sources */,
 				DE7E910D2822FD44004A9444 /* Frameworks */,
@@ -82,9 +82,9 @@
 			);
 			dependencies = (
 			);
-			name = GrammarRecognizer;
+			name = Lexical;
 			productName = GrammarRecognizer;
-			productReference = DE7E91102822FD44004A9444 /* GrammarRecognizer.app */;
+			productReference = DE7E91102822FD44004A9444 /* Lexical.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -102,7 +102,7 @@
 					};
 				};
 			};
-			buildConfigurationList = DE7E910B2822FD44004A9444 /* Build configuration list for PBXProject "GrammarRecognizer" */;
+			buildConfigurationList = DE7E910B2822FD44004A9444 /* Build configuration list for PBXProject "Lexical" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -115,7 +115,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DE7E910F2822FD44004A9444 /* GrammarRecognizer */,
+				DE7E910F2822FD44004A9444 /* Lexical */,
 			);
 		};
 /* End PBXProject section */
@@ -287,7 +287,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5MVGTUBM8B;
+				DEVELOPMENT_TEAM = 478594C4R9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GrammarRecognizer/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -295,12 +295,13 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = santiago.GrammarRecognizer;
+				PRODUCT_BUNDLE_IDENTIFIER = matheushomrich.lexical;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -315,7 +316,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5MVGTUBM8B;
+				DEVELOPMENT_TEAM = 478594C4R9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GrammarRecognizer/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -323,12 +324,13 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = santiago.GrammarRecognizer;
+				PRODUCT_BUNDLE_IDENTIFIER = matheushomrich.lexical;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -339,7 +341,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		DE7E910B2822FD44004A9444 /* Build configuration list for PBXProject "GrammarRecognizer" */ = {
+		DE7E910B2822FD44004A9444 /* Build configuration list for PBXProject "Lexical" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DE7E91222822FD45004A9444 /* Debug */,
@@ -348,7 +350,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DE7E91242822FD45004A9444 /* Build configuration list for PBXNativeTarget "GrammarRecognizer" */ = {
+		DE7E91242822FD45004A9444 /* Build configuration list for PBXNativeTarget "Lexical" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DE7E91252822FD45004A9444 /* Debug */,
