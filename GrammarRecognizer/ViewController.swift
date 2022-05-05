@@ -25,6 +25,8 @@ class ViewController: UIViewController {
     }
 
     @IBAction func buttonAction(_ sender: UIButton) {
+        response = [String: [String]]()
+        responseKeys = [String]()
         self.grammarSeparator(text: textView.text)
     }
     
@@ -42,8 +44,8 @@ class ViewController: UIViewController {
         tagger.enumerateTags(in: text.startIndex..<text.endIndex, unit: .word, scheme: .lexicalClass, options: options) { tag, tokenRange in
             if let tag = tag {
                 var current = response[tag.rawValue] ?? []
-                if !current.contains(text[tokenRange].description){
-                    current.append(text[tokenRange].description)
+                if !current.contains(text[tokenRange].description.lowercased()){
+                    current.append(text[tokenRange].description.lowercased())
                 }
                 response[tag.rawValue] = current
 
