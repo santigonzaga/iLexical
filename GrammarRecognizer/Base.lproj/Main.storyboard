@@ -103,13 +103,10 @@
                                     <color key="titleColor" systemColor="systemGreenColor"/>
                                 </state>
                                 <connections>
-                                    <action selector="ClearButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kZX-cS-gZB"/>
+                                    <action selector="clearButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OI0-nV-QVJ"/>
                                 </connections>
                             </button>
                             <color key="tintColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
-                            <connections>
-                                <action selector="ClearButton:" destination="BYZ-38-t0r" id="ZsF-wP-Tf4"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>

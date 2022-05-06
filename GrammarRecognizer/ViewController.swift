@@ -9,13 +9,14 @@ import UIKit
 import NaturalLanguage
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var button: UIButton!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var emptyImageView: UIImageView!
     private var response = [String: [String]]()
     private var responseKeys = [String]()
+    public var firstClick: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,29 +26,29 @@ class ViewController: UIViewController {
         self.textView.delegate = self
         self.tableView.dataSource = self
     }
-
+    
     @IBAction func buttonAction(_ sender: UIButton) {
         response = [String: [String]]()
         responseKeys = [String]()
         self.grammarSeparator(text: textView.text)
+        self.textView.endEditing(true)
     }
     
-    @IBAction func ClearButton(_ sender: UIButton) {
+    @IBAction func clearButton(_ sender: UIButton) {
         if textView.text == "Type here..." {
             return
         } else {
             let alert = UIAlertController(title: "Alert", message: "Are you sure you want to clear your text?", preferredStyle: UIAlertController.Style.alert)
-                    alert.addAction(UIAlertAction(title: "Yes", style: UIAlertAction.Style.default, handler: {_ in
-                        self.textView.text = ""
-                        self.response = [String: [String]]()
-                        self.responseKeys = [String]()
-                        self.tableView.reloadData()
-                        self.EmptyStateControl()
-                    }))
-                    alert.addAction(UIAlertAction(title: "No", style: UIAlertAction.Style.default, handler: nil))
-                    self.present(alert, animated: true, completion: nil)
+            alert.addAction(UIAlertAction(title: "Yes", style: UIAlertAction.Style.default, handler: {_ in
+                self.textView.text = ""
+                self.response = [String: [String]]()
+                self.responseKeys = [String]()
+                self.tableView.reloadData()
+                self.EmptyStateControl()
+            }))
+            alert.addAction(UIAlertAction(title: "No", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
-        
     }
     
     private func configureUI() {
@@ -88,7 +89,7 @@ class ViewController: UIViewController {
                     }
                     response[tag.rawValue] = current
                 }
-
+                
             }
             return true
         }
@@ -103,8 +104,15 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: UITextViewDelegate {
+    
     func textViewDidBeginEditing(_ textView: UITextView) {
-        textView.text = ""
+        if firstClick {
+            firstClick = false
+            textView.text = ""
+        } else {
+            return
+        }
+        
     }
 }
 
